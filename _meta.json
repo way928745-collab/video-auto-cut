@@ -1,0 +1,9 @@
+{
+  "name": "video-auto-cut",
+  "version": "1.0.0",
+  "description": "AI 剪辑对接：让 agent 通过 MCP 直连本地 OpenChatCut 编辑器，对话式剪辑（秒级分镜确认、A-roll 定稿→B-roll 后补、先审后改）。",
+  "author": "安岩",
+  "created": "2026-10-22",
+  "tools": {},
+  "default_out": ""
+}

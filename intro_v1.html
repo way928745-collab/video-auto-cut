@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>video-auto-cut v1.0.0 介绍页</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; padding: 32px 16px; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  .hero { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); border: 1px solid #4338ca; border-radius: 14px; padding: 32px 30px; }
+  .hero h1 { font-size: 28px; color: #fff; margin-bottom: 10px; }
+  .hero p { color: #c7d2fe; max-width: 720px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 20px 0; }
+  .stat { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 16px; text-align: center; }
+  .stat b { display: block; font-size: 26px; color: #818cf8; }
+  .stat span { color: #94a3b8; font-size: 13px; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 22px; margin-top: 16px; }
+  .card h2 { font-size: 18px; color: #fff; margin-bottom: 12px; border-left: 4px solid #6366f1; padding-left: 10px; }
+  ul { padding-left: 20px; }
+  li { margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
+  th, td { border: 1px solid #334155; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #334155; color: #e2e8f0; }
+  td { background: #16213a; }
+  .tag { display: inline-block; background: #312e81; color: #c7d2fe; border-radius: 6px; padding: 2px 10px; font-size: 12px; margin-right: 6px; }
+  .footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 24px; }
+  .positive { color: #4ade80; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <h1>video-auto-cut（AI 剪辑对接）</h1>
+    <p>让 AI agent 通过 MCP 直连你电脑上的本地视频编辑器 OpenChatCut，用对话指挥剪辑——读时间线、摆 B-roll、加字幕、放动效、导出成片，全程本地、先审后改。</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>100%</b><span>素材本地处理</span></div>
+    <div class="stat"><b>manual</b><span>默认确认模式</span></div>
+    <div class="stat"><b>秒级</b><span>制作分镜</span></div>
+    <div class="stat"><b>6 类</b><span>故障恢复场景</span></div>
+  </div>
+
+  <div class="card">
+    <h2>能做什么</h2>
+    <ul>
+      <li>对话式剪辑：读取项目时间线，给出剪辑方案，编辑器内确认后一键生效</li>
+      <li>秒级制作分镜：起止秒 / A-roll / B-roll / 镜头内容 / 对应文案，确认后才动手</li>
+      <li>A-roll 定稿 → B-roll 后补：以真实口播时间轴为基准，在指定窗口叠 B-roll</li>
+      <li>素材智能选段：长素材多窗口复用取有效区间，短素材用慢放/循环/定格补足</li>
+      <li>按需加载专项指南：字幕 / 转写 / MG 动效 / 生图生视频 / 音色 / 导出</li>
+      <li>故障恢复：连接拒绝、会话卡死、提案待审等 6 类场景逐条处置</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>适合谁 · 解决什么问题</h2>
+    <table>
+      <tr><th>目标用户</th><th>痛点 → 解决</th></tr>
+      <tr><td>用 AI agent 剪视频的内容创作者</td><td>口播反复手工拖时间线 → agent 直读项目状态按分镜批量操作</td></tr>
+      <tr><td>自媒体运营 / 短剧口播批量生产者</td><td>B-roll 凭感觉摆、盖人脸字幕 → 目标窗口驱动选段、自动避开人脸字幕区</td></tr>
+      <tr><td>用 Codex / Claude Code / Hermes 的团队</td><td>动效字幕做完才发现时间轴对不上 → A-roll 先定稿，一切以真实时间轴为准</td></tr>
+      <tr><td>担心 agent 误操作的用户</td><td>误操作没法回退 → 所有改动打包成一次原子撤销步骤，先审后应用</td></tr>
+      <tr><td>连不上编辑器就卡死的场景</td><td>agent 空转 → getting-started / known-errors 双文档端到端恢复</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>能带来哪些好处</h2>
+    <ul>
+      <li>省时间：一句话给出可审阅的剪辑提案，不用自己拖时间线</li>
+      <li>少返工：秒级分镜先确认，避免 B-roll / 动效 / 字幕全做完才发现错位</li>
+      <li>自动闭环：A-roll 定稿后 B-roll 自动按窗口补位，素材复用不浪费</li>
+      <li>数据可见：编辑提案、确认、应用都在编辑器内可视化完成</li>
+      <li>出错可控：手动模式 + 原子撤销 + 六类故障手册，不怕 agent 乱动</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>优势在哪</h2>
+    <table>
+      <tr><th>维度</th><th>没有它</th><th>有它</th></tr>
+      <tr><td>工作起点</td><td>先手抄时间轴再手动操作</td><td>agent 直读项目当前状态</td></tr>
+      <tr><td>B-roll 摆放</td><td>凭感觉铺，容易盖人脸字幕</td><td>秒级分镜 + 目标窗口驱动 + 避开人脸字幕区</td></tr>
+      <tr><td>时间基准</td><td>按文稿估算摆特效</td><td>A-roll 定稿后的真实口播时间轴</td></tr>
+      <tr><td>误操作保护</td><td>误改难回退</td><td>提案先审后应用、一次原子撤销</td></tr>
+      <tr><td>复杂协作</td><td>各工具割裂、专项知识分散</td><td>专项指南按需 load_skill 统一加载</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>证据（真实运行数据）</h2>
+    <p>本技能 v1 首发，作为 OpenChatCut 的外部对接入口（本地编辑器本体独立安装）。<span class="positive">首月运行数据待积累后补充</span>；连接与工作流规范沉淀自 2026-09 起的 OpenChatCut 实战调试：MCP 端点（localhost:5199）、会话复用（reuseExisting / recover_edit_session）、秒级分镜确认机制已在真实剪辑流程中验证可用。</p>
+    <p style="margin-top:10px;color:#94a3b8;font-size:13px">数据来源：技能包 SKILL.md 与 references/ 实战文档；具体可用性以包内运行时文档为准。</p>
+  </div>
+
+  <div class="card">
+    <h2>功能核心点</h2>
+    <table>
+      <tr><th>核心机制</th><th>设计要点</th></tr>
+      <tr><td>MCP 直连本地编辑器</td><td>默认端点 localhost:5199/api/external-mcp/mcp；bearer token 从编辑器 Settings → MCP 复制，凭据不进仓库</td></tr>
+      <tr><td>会话级草稿</td><td>begin_edit_session 开草稿 → review_edit_session 统一应用；reuseExisting 续用未完成草稿</td></tr>
+      <tr><td>秒级分镜确认</td><td>未确认不开始 B-roll / 动效 / 字幕 / 音乐；动效贴片须写明内容、位置、起止秒并避开人脸字幕区</td></tr>
+      <tr><td>A-roll → B-roll 工作流</td><td>口播时间线是唯一时间基准；B-roll 时长由目标窗口决定，支持源区间选取、慢放、循环、定格</td></tr>
+      <tr><td>按需加载专项指南</td><td>load_skill 只读、无需编辑会话；progressive exposure 减少首轮工具清单</td></tr>
+      <tr><td>故障恢复手册</td><td>连接拒绝/无编辑器/工具缺失/会话过期/提案待审/基线更新六类场景逐条处置</td></tr>
+    </table>
+  </div>
+
+  <div class="footer">版本 v1.0.0 · 知识星球 https://t.zsxq.com/uN5lR</div>
+</div>
+</body>
+</html>
